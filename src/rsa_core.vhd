@@ -1,7 +1,7 @@
 library IEEE;
   use IEEE.std_logic_1164.all;
 
-entity rsacore is
+entity rsa_core is
   generic (
     G_size : integer := 128
   );
@@ -15,9 +15,9 @@ entity rsacore is
     ciphertext : out   std_logic_vector(G_size - 1 downto 0);
     done       : out   std_logic
   );
-end rsacore;
+end rsa_core;
 
-architecture behavioral of rsacore is
+architecture behavioral of rsa_core is
 
   component m_e_mod_c is
     generic (
@@ -38,27 +38,6 @@ architecture behavioral of rsacore is
   signal c : std_logic_vector(G_size - 1 downto 0);
 
 begin
-
-  -- finite_state_machine : fsm
-  --   generic map (
-  --     word_width => w_data,
-  --     data_width => G_size
-  --   )
-  --   port map (
-  --     clk           => clk,
-  --     reset_n       => reset,
-  --     start_rsa     => start,
-  --     init_rsa      => initrsa,
-  --     core_finished => done,
-  --     data_in       => datain,
-  --     data_out      => dataout,
-  --     rstn_bin_add  => resetn_bin_add,
-  --     m_buf         => m,
-  --     n_buf         => n,
-  --     e_buf         => e,
-  --     c_buf         => c,
-  --     rsa_finished  => rsa_done
-  --   );
 
   lr_bin_adder : m_e_mod_c
     generic map (

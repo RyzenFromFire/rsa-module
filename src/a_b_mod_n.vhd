@@ -5,7 +5,7 @@ library IEEE;
 
 entity a_b_mod_n is
   generic (
-    data_width : integer := 128 -- W_BLOCK
+    data_width : integer
   );
   port (
     clk  : in    std_logic;
